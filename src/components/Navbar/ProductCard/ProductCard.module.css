@@ -30,7 +30,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-img {
+.productImage {
   max-height: 250px;
   max-width: 250px;
 }

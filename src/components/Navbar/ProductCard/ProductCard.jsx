@@ -4,7 +4,7 @@ import styles from "./ProductCard.module.css";
 const ProductCard = ({ name, imageUrl, price }) => {
   return (
     <div className={styles.productCard}>
-      <img src={imageUrl} alt={name} />
+      <img className={styles.productImage} src={imageUrl} alt={name} />
       <div className="product-info">
         <span className="product-name">{name}</span>
         <span className="product-price">{price}</span>
