@@ -1,6 +1,7 @@
-import Navbar from "./Navbar/Navbar";
-import ProductCard from "./ProductCard";
+import Navbar from "../Navbar/Navbar";
+import ProductCard from "../Navbar/ProductCard/ProductCard";
 import { useState, useEffect } from "react";
+import styles from "./Shop.module.css";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -39,8 +40,8 @@ const Shop = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <h1>Hello this is the Shop page!</h1>
-      <div className="products-container">
+      <h1>Our Products</h1>
+      <div className={styles.container}>
         {products.map((product) => (
           <ProductCard
             key={product.id}
