@@ -6,8 +6,8 @@ const Home = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <h1>Home Page Title</h1>
-      <h2>Home Page subheading</h2>
+      <h1>Store Name</h1>
+      <h2>Start shopping now!</h2>
       <img src={HomeImage} height="500px" alt="Home page image" />
       <Link to="/shop">
         <button>Shop</button>
