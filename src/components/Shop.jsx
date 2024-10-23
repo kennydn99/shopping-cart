@@ -1,4 +1,5 @@
 import Navbar from "./Navbar/Navbar";
+import ProductCard from "./ProductCard";
 import { useState, useEffect } from "react";
 
 const Shop = () => {
@@ -17,7 +18,10 @@ const Shop = () => {
         }
         return response.json();
       })
-      .then((data) => setProducts(data))
+      .then((data) => {
+        console.log("data: ", data);
+        setProducts(data);
+      })
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
   }, []);
@@ -38,9 +42,12 @@ const Shop = () => {
       <h1>Hello this is the Shop page!</h1>
       <div className="products-container">
         {products.map((product) => (
-          <div key={product.id}>
-            <p>{product.title}</p>
-          </div>
+          <ProductCard
+            key={product.id}
+            name={product.title}
+            imageUrl={product.image}
+            price={product.price}
+          ></ProductCard>
         ))}
       </div>
     </div>
