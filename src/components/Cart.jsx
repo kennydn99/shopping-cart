@@ -1,6 +1,7 @@
 import Navbar from "./Navbar/Navbar";
 import { useContext } from "react";
 import CartContext from "./CartContext";
+import ProductCard from "./ProductCard/ProductCard";
 
 const Cart = () => {
   const { cartItems } = useContext(CartContext);
@@ -14,12 +15,14 @@ const Cart = () => {
       ) : (
         <div>
           {cartItems.map((item) => (
-            <div key={item.id}>
-              <p>{item.name}</p>
-              <p>Quantity: {item.quantity}</p>
-              <p>Price: ${item.price}</p>
-              <p>Total: ${item.price * item.quantity}</p>
-            </div>
+            <ProductCard
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              imageUrl={item.imageUrl}
+              price={item.price}
+              showQuantityControls={false}
+            />
           ))}
         </div>
       )}

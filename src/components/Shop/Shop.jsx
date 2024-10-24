@@ -1,5 +1,5 @@
 import Navbar from "../Navbar/Navbar";
-import ProductCard from "../Navbar/ProductCard/ProductCard";
+import ProductCard from "../ProductCard/ProductCard";
 import { useState, useEffect } from "react";
 import styles from "./Shop.module.css";
 

@@ -1,7 +1,7 @@
 .productCard {
   border: 1px solid #ccc;
   padding: 20px;
-  height: 350px;
+  height: 360px;
   max-width: 300px;
   text-align: center;
   display: flex;
@@ -12,8 +12,16 @@
 
 .productActions {
   display: flex;
+  align-items: center;
   gap: 16px;
 }
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .quantity {
   display: flex;
   gap: 4px;
