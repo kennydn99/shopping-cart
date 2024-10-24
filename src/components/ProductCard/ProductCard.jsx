@@ -22,6 +22,14 @@ const ProductCard = ({ id, name, imageUrl, price, showQuantityControls }) => {
   const handleIncrement = () => setQuantity(quantity + 1);
   const handleDecrement = () => setQuantity(Math.max(1, quantity - 1));
 
+  // Function to handle manual input change for quantity
+  const handleQuantityChange = (e) => {
+    const value = parseInt(e.target.value, 10);
+    if (!isNaN(value) && value > 0) {
+      setQuantity(value);
+    }
+  };
+
   return (
     <div className={styles.productCard}>
       <img className={styles.productImage} src={imageUrl} alt={name} />
@@ -34,7 +42,12 @@ const ProductCard = ({ id, name, imageUrl, price, showQuantityControls }) => {
           <>
             <div className={styles.quantity}>
               <button onClick={handleDecrement}>-</button>
-              <input type="number" value={quantity} readOnly />
+              <input
+                type="number"
+                value={quantity}
+                onChange={handleQuantityChange}
+                min="1"
+              />
               <button onClick={handleIncrement}>+</button>
             </div>
             <button onClick={handleAddToCart}>Add to Cart</button>
