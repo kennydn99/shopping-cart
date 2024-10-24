@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 // Store cart info and provide methods to update cart
 const CartContext = createContext();
 
-export const CartProvider = ({ children }) => {
+export const CartProvider = ({ children, value }) => {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (product, quantity) => {
@@ -29,12 +29,16 @@ export const CartProvider = ({ children }) => {
 
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
+  // Allow overriding the default cartItems with mock data via the `value` prop in tests
+  const contextValue = value || {
+    cartItems,
+    addToCart,
+    cartCount,
+    removeFromCart,
+  };
+
   return (
-    <CartContext.Provider
-      value={{ cartItems, addToCart, cartCount, removeFromCart }}
-    >
-      {children}
-    </CartContext.Provider>
+    <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
   );
 };
 
