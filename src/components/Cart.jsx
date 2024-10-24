@@ -7,10 +7,18 @@ import styles from "./Shop/Shop.module.css";
 const Cart = () => {
   const { cartItems } = useContext(CartContext);
 
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+
   return (
     <div>
       <Navbar></Navbar>
-      <h1 className={styles.shopHeading}>Your Cart</h1>
+      <div className={styles.cartHeader}>
+        <h1 className={styles.shopHeading}>Your Cart</h1>
+        <h2 className={styles.total}>Total: ${totalPrice.toFixed(2)}</h2>
+      </div>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (

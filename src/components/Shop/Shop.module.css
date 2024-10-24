@@ -9,3 +9,13 @@
 .shopHeading {
   margin-left: 1em;
 }
+
+.cartHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.total {
+  margin-right: 1em;
+}

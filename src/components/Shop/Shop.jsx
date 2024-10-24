@@ -19,10 +19,7 @@ const Shop = () => {
         }
         return response.json();
       })
-      .then((data) => {
-        console.log("data: ", data);
-        setProducts(data);
-      })
+      .then((data) => setProducts(data))
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
   }, []);

@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
-// Store cart ingo and provide methods to update cart
+import PropTypes from "prop-types";
 
+// Store cart info and provide methods to update cart
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
@@ -22,13 +23,23 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  const removeFromCart = (id) => {
+    setCartItems((prevCart) => prevCart.filter((item) => item.id !== id));
+  };
+
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, cartCount }}>
+    <CartContext.Provider
+      value={{ cartItems, addToCart, cartCount, removeFromCart }}
+    >
       {children}
     </CartContext.Provider>
   );
+};
+
+CartProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default CartContext;

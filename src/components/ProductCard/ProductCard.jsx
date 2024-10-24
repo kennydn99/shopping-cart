@@ -3,8 +3,14 @@ import PropTypes from "prop-types";
 import styles from "./ProductCard.module.css";
 import CartContext from "../CartContext";
 
-const ProductCard = ({ id, name, imageUrl, price, showQuantityControls }) => {
-  const { addToCart, cartItems } = useContext(CartContext);
+const ProductCard = ({
+  id,
+  name,
+  imageUrl,
+  price,
+  showQuantityControls = true,
+}) => {
+  const { addToCart, cartItems, removeFromCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
 
   const cartItem = cartItems.find((item) => item.id === id);
@@ -17,6 +23,10 @@ const ProductCard = ({ id, name, imageUrl, price, showQuantityControls }) => {
 
   const handleAddToCart = () => {
     addToCart({ id, name, price, imageUrl }, quantity);
+  };
+
+  const handleRemoveFromCart = () => {
+    removeFromCart(id);
   };
 
   const handleIncrement = () => setQuantity(quantity + 1);
@@ -57,7 +67,7 @@ const ProductCard = ({ id, name, imageUrl, price, showQuantityControls }) => {
             <span className={styles.productQuantity}>
               Quantity: {cartItem?.quantity || 1}
             </span>
-            <button>Remove from Cart</button>
+            <button onClick={handleRemoveFromCart}>Remove from Cart</button>
           </>
         )}
       </div>
@@ -71,10 +81,6 @@ ProductCard.propTypes = {
   imageUrl: PropTypes.string,
   price: PropTypes.number,
   showQuantityControls: PropTypes.bool,
-};
-
-ProductCard.defaultProps = {
-  showQuantityControls: true,
 };
 
 export default ProductCard;
