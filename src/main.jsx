@@ -5,7 +5,7 @@ import { CartProvider } from "./components/CartContext.jsx";
 import App from "./App.jsx";
 import Shop from "./components/Shop/Shop.jsx";
 import Cart from "./components/Cart.jsx";
-import ErrorPage from "./components/ErrorPage.jsx";
+import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
