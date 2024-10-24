@@ -40,11 +40,12 @@ const Shop = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <h1>Our Products</h1>
+      <h1 className={styles.shopHeading}>Our Products</h1>
       <div className={styles.container}>
         {products.map((product) => (
           <ProductCard
             key={product.id}
+            id={product.id}
             name={product.title}
             imageUrl={product.image}
             price={product.price}
