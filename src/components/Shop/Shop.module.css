@@ -4,10 +4,12 @@
   align-items: center;
   justify-items: center;
   gap: 2em;
+  padding: 24px 48px;
 }
 
 .shopHeading {
   margin-left: 1em;
+  font-size: 1.8em;
 }
 
 .cartHeader {
@@ -18,4 +20,9 @@
 
 .total {
   margin-right: 1em;
+}
+
+.emptyCart {
+  display: flex;
+  justify-content: center;
 }

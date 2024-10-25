@@ -28,7 +28,7 @@ const Shop = () => {
     return (
       <div>
         <Navbar></Navbar>
-        <p>Loading...</p>
+        <p className={styles.emptyCart}>Loading...</p>
       </div>
     );
 

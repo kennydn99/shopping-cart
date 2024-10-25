@@ -1,6 +1,13 @@
 .navbar {
-  display: flex;
-  justify-content: space-around;
-  border: 1px black solid;
+  background-color: #1b1b1b;
   padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: #a8e063;
+  font-weight: bold;
+  margin: 0 15px;
 }

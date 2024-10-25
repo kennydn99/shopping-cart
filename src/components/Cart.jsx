@@ -20,7 +20,7 @@ const Cart = () => {
         <h2 className={styles.total}>Total: ${totalPrice.toFixed(2)}</h2>
       </div>
       {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p className={styles.emptyCart}>Your cart is empty.</p>
       ) : (
         <div className={styles.container}>
           {cartItems.map((item) => (

@@ -44,8 +44,8 @@ const ProductCard = ({
     <div className={styles.productCard}>
       <img className={styles.productImage} src={imageUrl} alt={name} />
       <div className={styles.productInfo}>
-        <span className="product-name">{name}</span>
-        <span className="product-price">${price}</span>
+        <span className={styles.productName}>{name}</span>
+        <span className={styles.productPrice}>${price}</span>
       </div>
       <div className={styles.productActions}>
         {showQuantityControls ? (
