@@ -8,7 +8,7 @@ const Home = () => {
     <div>
       <Navbar></Navbar>
       <div className={styles.home}>
-        <h1>Store Name</h1>
+        <h1>The Computer Store</h1>
         <h2>Start shopping now!</h2>
         <img
           className={styles.homeImage}
