@@ -44,6 +44,20 @@ export const CartProvider = ({ children, value }) => {
 
 CartProvider.propTypes = {
   children: PropTypes.node.isRequired,
+  value: PropTypes.shape({
+    cartItems: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        imageUrl: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        quantity: PropTypes.number.isRequired,
+      })
+    ),
+    addToCart: PropTypes.func,
+    removeFromCart: PropTypes.func,
+    cartCount: PropTypes.number,
+  }),
 };
 
 export default CartContext;
